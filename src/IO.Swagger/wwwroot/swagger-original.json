@@ -1,0 +1,613 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "WebApiDBMS",
+    "version" : "1.0"
+  },
+  "servers" : [ {
+    "url" : "/"
+  } ],
+  "paths" : {
+    "/Database" : {
+      "get" : {
+        "tags" : [ "Database" ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Database"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Database"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Database"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Database/current" : {
+      "get" : {
+        "tags" : [ "Database" ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Database"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Database"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Database"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Database/tables/names" : {
+      "get" : {
+        "tags" : [ "Database" ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  },
+                  "x-content-type" : "text/plain"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Database/tables" : {
+      "get" : {
+        "tags" : [ "Database" ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Table"
+                  },
+                  "x-content-type" : "text/plain"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Table"
+                  }
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Table"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Database/table/{tableIndex}" : {
+      "get" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "tableIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Table"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Table"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Table"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "tableIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/Database/load/{databaseName}" : {
+      "get" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "databaseName",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/Database/Subtract/{firstTableIndex}/{secondTableIndex}" : {
+      "get" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "firstTableIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "secondTableIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Table"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Table"
+                }
+              },
+              "text/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Table"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Database/create" : {
+      "post" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "databaseName",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/Database/table" : {
+      "post" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "tableName",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/Database/save" : {
+      "post" : {
+        "tags" : [ "Database" ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/Database/table/{tableIndex}/record" : {
+      "post" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "tableIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/Database/table/{tableIndex}/field" : {
+      "post" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "tableIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/Database/table/{tableIndex}/field/{fieldIndex}/record/{recordIndex}" : {
+      "put" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "tableIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "fieldIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "recordIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "value",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/Database/table/{tableIndex}/field/{fieldIndex}" : {
+      "delete" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "tableIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "fieldIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/Database/table/{tableIndex}/record/{recordIndex}" : {
+      "delete" : {
+        "tags" : [ "Database" ],
+        "parameters" : [ {
+          "name" : "tableIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "recordIndex",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Database" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "tables" : {
+            "type" : "array",
+            "nullable" : true,
+            "items" : {
+              "$ref" : "#/components/schemas/Table"
+            }
+          }
+        },
+        "additionalProperties" : false,
+        "example" : {
+          "tables" : [ {
+            "records" : [ {
+              "valuesList" : [ "valuesList", "valuesList" ]
+            }, {
+              "valuesList" : [ "valuesList", "valuesList" ]
+            } ],
+            "name" : "name",
+            "fields" : [ {
+              "name" : "name",
+              "typeName" : "typeName"
+            }, {
+              "name" : "name",
+              "typeName" : "typeName"
+            } ]
+          }, {
+            "records" : [ {
+              "valuesList" : [ "valuesList", "valuesList" ]
+            }, {
+              "valuesList" : [ "valuesList", "valuesList" ]
+            } ],
+            "name" : "name",
+            "fields" : [ {
+              "name" : "name",
+              "typeName" : "typeName"
+            }, {
+              "name" : "name",
+              "typeName" : "typeName"
+            } ]
+          } ],
+          "name" : "name"
+        }
+      },
+      "Field" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "typeName" : {
+            "type" : "string",
+            "nullable" : true
+          }
+        },
+        "additionalProperties" : false,
+        "example" : {
+          "name" : "name",
+          "typeName" : "typeName"
+        }
+      },
+      "Record" : {
+        "type" : "object",
+        "properties" : {
+          "valuesList" : {
+            "type" : "array",
+            "nullable" : true,
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "additionalProperties" : false,
+        "example" : {
+          "valuesList" : [ "valuesList", "valuesList" ]
+        }
+      },
+      "Table" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "fields" : {
+            "type" : "array",
+            "nullable" : true,
+            "items" : {
+              "$ref" : "#/components/schemas/Field"
+            }
+          },
+          "records" : {
+            "type" : "array",
+            "nullable" : true,
+            "items" : {
+              "$ref" : "#/components/schemas/Record"
+            }
+          }
+        },
+        "additionalProperties" : false,
+        "example" : {
+          "records" : [ {
+            "valuesList" : [ "valuesList", "valuesList" ]
+          }, {
+            "valuesList" : [ "valuesList", "valuesList" ]
+          } ],
+          "name" : "name",
+          "fields" : [ {
+            "name" : "name",
+            "typeName" : "typeName"
+          }, {
+            "name" : "name",
+            "typeName" : "typeName"
+          } ]
+        }
+      }
+    }
+  }
+}
